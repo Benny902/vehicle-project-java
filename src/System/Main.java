@@ -7,7 +7,7 @@ import Vehicle.Frigate;
 public class Main {
     public static void main(String[] args) {
         //Jeep(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, int numOfWheels, boolean roadType, String typeOfLicense, int avgFuelConsumption, int avgEngineLifeSpan)
-        Vehicle a = new Jeep("bmw", 900, 2, 320, 4, false, "MINI", 25, 2);
+        Vehicle a = new Jeep("BMW", 800, 2, 320, 4, false, "MINI", 25, 2);
         System.out.println(a.toString());
 
 
