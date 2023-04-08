@@ -1,14 +1,30 @@
 package Vehicle;
 
 public abstract class Vehicle {
+
+    protected void move(int distance){
+        distanceTraveled+=distance;
+    }
     protected String model;
     protected int distanceTraveled ;
+    protected int numOfPassengers;
+    protected int maxSpeed;
 
-    public Vehicle(String model, int distanceTraveled, int numOfPassengers, int maxSpeed) {
-        this.model = model;
-        this.distanceTraveled = distanceTraveled;
-        this.numOfPassengers = numOfPassengers;
-        this.maxSpeed = maxSpeed;
+    public Vehicle() {
+        this.model ="";
+        this.distanceTraveled = 0;
+        this.numOfPassengers = 0;
+        this.maxSpeed = 0;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Model: " + model +
+                ", traveled: " + distanceTraveled + " Km" +
+                ", Max speed of " + maxSpeed + " Mph" +
+                ", can carry max of " + numOfPassengers + " people."
+                ;
     }
 
     public String getModel() {
@@ -43,10 +59,7 @@ public abstract class Vehicle {
         this.maxSpeed = maxSpeed;
     }
 
-    protected int numOfPassengers;
-    protected int maxSpeed;
-    protected void move(int distance){
-        distanceTraveled=distanceTraveled+distance;
-    }
+
+
 
 }

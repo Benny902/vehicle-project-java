@@ -1,53 +1,69 @@
 package Vehicle;
 
+import java.util.Objects;
+
 public class Jeep extends LandVehicle implements IMotorized, ICommercial {
     private String typeOfLicense;
-    private int avgFuelConsumption;
-    private int avgEngineLifeSpan;
+    private double avgFuelConsumption;
+    private double avgEngineLifeSpan;
+
+
+    public Jeep(String model, double avgFuelConsumption, int maxSpeed, double avgEngineLifeSpan) {
+        super();
+        // Jeep details that cannot be changed: Land, Motor, 4Wheels, 5PPl, Dirt
+        this.numOfWheels=4;
+        this.numOfPassengers=5;
+        this.roadType =false; // // false = dirt
+        this.typeOfLicense="MINI"; // because the license is always MINI (by the #1 exercise rules)
+
+        // Jeep details entered by user: model type, average fuel consumption, max speed, average life of the engine.
+        this.model=model;
+        this.avgFuelConsumption=avgFuelConsumption;
+        this.maxSpeed=maxSpeed;
+        this.avgEngineLifeSpan=avgEngineLifeSpan;
+    }
 
 
     @Override
     public String toString() {
         String ourRoadType;
-        if (this.roadType=true) {
+        if (this.roadType==true) {
             ourRoadType="pavement";
         }
         else
             ourRoadType="dirt";
-        return "Jeep{" +
-                "typeOfLicense=" + typeOfLicense +
+        return "Jeep{" + super.toString() +
+                ", typeOfLicense=" + typeOfLicense +
                 ", avgFuelConsumption=" + avgFuelConsumption +
                 ", avgEngineLifeSpan=" + avgEngineLifeSpan +
-                ", numOfWheels=" + numOfWheels +
-                ", roadType=" + ourRoadType +
-                ", model=" + model +
-                ", distanceTraveled=" + distanceTraveled +
-                ", numOfPassengers=" + numOfPassengers +
-                ", maxSpeed=" + maxSpeed +
                 '}';
     }
 
-    public Jeep(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, int numOfWheels, boolean roadType, String typeOfLicense, int avgFuelConsumption, int avgEngineLifeSpan) {
-        // Jeep details that cannot be changed: Land, Motor, 4Wheels, 5PPl, Dirt
-        // Jeep details entered by user: model type, average fuel consumption, average speed and average life of the engine.
-        super(model, distanceTraveled, 5, maxSpeed, 4, false);  // false = dirt
-        theTypeOfLicense("MINI"); // because the license is always MINI (by the exercise 1 rules)
-        theAvgFuelConsumption(avgFuelConsumption);
-        theAvgEngineLifeSpan(avgEngineLifeSpan);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jeep jeep = (Jeep) o;
+        return Double.compare(jeep.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(jeep.avgEngineLifeSpan, avgEngineLifeSpan) == 0 && Objects.equals(typeOfLicense, jeep.typeOfLicense);
     }
 
     @Override
-    public void theTypeOfLicense(String typeOfLicense) {
+    public int hashCode() {
+        return Objects.hash(typeOfLicense, avgFuelConsumption, avgEngineLifeSpan);
+    }
+
+    @Override
+    public void setTypeOfLicense(String typeOfLicense) {
         this.typeOfLicense=typeOfLicense;
     }
 
     @Override
-    public void theAvgFuelConsumption(int avgFuelConsumption) {
+    public void setAvgFuelConsumption(double avgFuelConsumption) {
         this.avgFuelConsumption=avgFuelConsumption;
     }
 
     @Override
-    public void theAvgEngineLifeSpan(int avgEngineLifeSpan) {
+    public void setAvgEngineLifeSpan(double avgEngineLifeSpan) {
         this.avgEngineLifeSpan=avgEngineLifeSpan;
     }
 }

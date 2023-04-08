@@ -2,11 +2,16 @@ package Vehicle;
 
 public abstract class MarineVehicle extends Vehicle{
 
-
     protected boolean sailWindDirection; //true=with . false=against
     protected String countryFlag;
 
-    public boolean isSailWindDirection() {
+    public MarineVehicle() {
+        super();
+        this.sailWindDirection=false;
+        this.countryFlag="";
+    }
+
+    public boolean getSailWindDirection() {
         return sailWindDirection;
     }
 
@@ -22,9 +27,17 @@ public abstract class MarineVehicle extends Vehicle{
         this.countryFlag = countryFlag;
     }
 
-    public MarineVehicle(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, boolean sailWindDirection, String countryFlag) {
-        super(model, distanceTraveled, numOfPassengers, maxSpeed);
-        this.sailWindDirection=sailWindDirection;
-        this.countryFlag=countryFlag;
+    public String toString() {
+        String flagBool="";
+        if (this.sailWindDirection == true) { // with
+            flagBool="with";
+        }
+        else
+            flagBool="against";
+        return "Frigate{" +
+               super.toString() +
+                " Under " + countryFlag + " flag" +
+                ", " + flagBool + " the wind. ";
     }
+
 }

@@ -2,10 +2,28 @@ package Vehicle;
 
 public abstract class AirVehicle extends Vehicle{
 
-    boolean UseOfTheVehicle; // true = military ,  false = civilian
+    boolean isMilitary; // true = military ,  false = civilian
 
-    public AirVehicle(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, boolean UseOfTheVehicle) {
-        super(model, distanceTraveled, numOfPassengers, maxSpeed);
-        this.UseOfTheVehicle = UseOfTheVehicle;
+    public AirVehicle() {
+        super();
+        this.isMilitary = false;
+    }
+
+    public boolean isMilitary() {
+        return isMilitary;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", isMilitary=" + isMilitary
+
+                ;
+    }
+
+
+
+    public void setMilitary(boolean military) {
+        isMilitary = military;
     }
 }

@@ -1,6 +1,6 @@
 package Vehicle;
 
 public interface ICommercial {
-    void theTypeOfLicense(String typeOfLicense); //  MINI / LIMIT / UNLIMIT
+    void setTypeOfLicense(String typeOfLicense); //  MINI / LIMIT / UNLIMIT
 
 }
