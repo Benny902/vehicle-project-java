@@ -519,7 +519,7 @@ public class Menus {
 
     public void changeFlagOfAllMarineVehicles(){
         Scanner userFlagInput = new Scanner(System.in);
-        System.out.print("Which Flag you want all Marine Vehicles to have?\n");
+        System.out.print("Which Flag you want All Marine Vehicles to have?\n");
         String chosenFlag = userFlagInput.nextLine();
 
         for (int i = 0; i < amountOfVehicles; i++) {
@@ -527,7 +527,7 @@ public class Menus {
                 ((MarineVehicle) Agency[i]).setCountryFlag(chosenFlag);
             }
         }
-        System.out.print("Distance traveled for ALL the Vehicles has been Reset");
+        System.out.print("Flag for All the Marine Vehicles have been Changed to " + chosenFlag);
     }
 
     public void printAllVehicles(){
