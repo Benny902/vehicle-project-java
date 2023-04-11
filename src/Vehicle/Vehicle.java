@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public abstract class Vehicle {
 
-    protected void move(int distance){
+    public void move(int distance){
         distanceTraveled+=distance;
     }
     protected String model;
@@ -35,6 +35,13 @@ public abstract class Vehicle {
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
         return distanceTraveled == vehicle.distanceTraveled && numOfPassengers == vehicle.numOfPassengers && maxSpeed == vehicle.maxSpeed && Objects.equals(model, vehicle.model);
+    }
+
+    public boolean equals2(Object o) { // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return numOfPassengers == vehicle.numOfPassengers && maxSpeed == vehicle.maxSpeed && Objects.equals(model, vehicle.model);
     }
 
     @Override

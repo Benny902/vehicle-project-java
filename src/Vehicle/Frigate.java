@@ -56,6 +56,14 @@ public class Frigate extends MarineVehicle implements IMotorized{
         return Double.compare(frigate.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(frigate.avgEngineLifeSpan, avgEngineLifeSpan) == 0;
     }
 
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Frigate frigate)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(frigate.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(frigate.avgEngineLifeSpan, avgEngineLifeSpan) == 0;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(avgFuelConsumption, avgEngineLifeSpan);

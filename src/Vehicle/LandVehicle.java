@@ -38,6 +38,16 @@ public abstract class LandVehicle extends Vehicle {
         return numOfWheels == that.numOfWheels && roadType == that.roadType;
     }
 
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    @Override
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        LandVehicle that = (LandVehicle) o;
+        return numOfWheels == that.numOfWheels && roadType == that.roadType;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), numOfWheels, roadType);

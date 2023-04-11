@@ -50,6 +50,14 @@ public abstract class MarineVehicle extends Vehicle{
         return getSailWindDirection() == that.getSailWindDirection() && Objects.equals(getCountryFlag(), that.getCountryFlag());
     }
 
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MarineVehicle that)) return false;
+        if (!super.equals(o)) return false;
+        return getSailWindDirection() == that.getSailWindDirection() && Objects.equals(getCountryFlag(), that.getCountryFlag());
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getSailWindDirection(), getCountryFlag());
