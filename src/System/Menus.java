@@ -527,7 +527,7 @@ public class Menus {
                 ((MarineVehicle) Agency[i]).setCountryFlag(chosenFlag);
             }
         }
-        System.out.print("Flag for All the Marine Vehicles have been Changed to " + chosenFlag);
+        System.out.print("Flag for All the Marine Vehicles have been Changed to " + chosenFlag +".");
     }
 
     public void printAllVehicles(){
