@@ -42,7 +42,7 @@ public class Frigate extends MarineVehicle implements IMotorized{
 
     @Override
     public String toString() {
-        return  super.toString() +
+        return  "Frigate{" + super.toString() +
                 "Engine: " + avgFuelConsumption + "L" +
                 ", lifetime of = " + avgEngineLifeSpan + " years. " +
                 '}';
@@ -78,4 +78,9 @@ public class Frigate extends MarineVehicle implements IMotorized{
     public void setAvgEngineLifeSpan(double avgEngineLifeSpan) {
         this.avgEngineLifeSpan=avgEngineLifeSpan;
     }
+
+    public double getAvgFuelConsumption() { return avgFuelConsumption; }
+
+    public double getAvgEngineLifeSpan() { return avgEngineLifeSpan; }
+
 }

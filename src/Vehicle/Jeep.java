@@ -76,4 +76,13 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
     public void setAvgEngineLifeSpan(double avgEngineLifeSpan) {
         this.avgEngineLifeSpan=avgEngineLifeSpan;
     }
+
+    public String getTypeOfLicense() { return typeOfLicense; }
+
+    public double getAvgFuelConsumption() { return avgFuelConsumption; }
+
+    public double getAvgEngineLifeSpan() { return avgEngineLifeSpan; }
+
+
 }
+

@@ -50,12 +50,12 @@ public class ToyGlider extends AirVehicle implements INonMotorized {
     }
 
     @Override
-    public void setPowerSource(String powerSource) {
-
-    }
+    public void setPowerSource(String powerSource) { this.powerSource = powerSource; }
 
     @Override
-    public void setEnergyScore(char energyScore) {
+    public void setEnergyScore(char energyScore) { this.energyScore = energyScore; }
 
-    }
+    public String getPowerSource() { return powerSource; }
+
+    public char getEnergyScore() { return energyScore; }
 }

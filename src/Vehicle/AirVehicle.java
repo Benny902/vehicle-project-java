@@ -2,7 +2,7 @@ package Vehicle;
 
 import java.util.Objects;
 
-public abstract class AirVehicle extends Vehicle{
+public class AirVehicle extends Vehicle{
 
     boolean isMilitary; // true = military ,  false = civilian
 

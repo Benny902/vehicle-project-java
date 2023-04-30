@@ -2,7 +2,7 @@ package Vehicle;
 
 import java.util.Objects;
 
-public abstract class MarineVehicle extends Vehicle{
+public class MarineVehicle extends Vehicle{
 
     protected boolean sailWindDirection; //true=with . false=against
     protected String countryFlag;
@@ -11,6 +11,12 @@ public abstract class MarineVehicle extends Vehicle{
         super();
         this.sailWindDirection=false;
         this.countryFlag="";
+    }
+
+    public MarineVehicle(boolean sailWindDirection, String countryFlag) { // for amphibious
+        super();
+        this.sailWindDirection=sailWindDirection;
+        this.countryFlag=countryFlag;
     }
 
     public boolean getSailWindDirection() {
@@ -36,8 +42,7 @@ public abstract class MarineVehicle extends Vehicle{
         }
         else
             flagBool="against";
-        return "Frigate{" +
-               super.toString() +
+        return super.toString() +
                 " Under " + countryFlag + " flag" +
                 ", " + flagBool + " the wind. ";
     }
