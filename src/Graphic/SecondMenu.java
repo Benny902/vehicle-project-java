@@ -77,6 +77,7 @@ public class SecondMenu extends JFrame implements ActionListener {
     Menus a = new Menus();
     @Override
     public void actionPerformed(ActionEvent e) {
+
         String command = e.getActionCommand();
         //boolean exit = true;
         //while (exit) {

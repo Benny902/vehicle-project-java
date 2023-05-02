@@ -35,17 +35,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import System.Menus;
-import Vehicle.Vehicle;
-import Vehicle.Jeep;
-import System.Menus;
 
 
 import static System.Main.Agency;
 import static System.Main.amountOfVehicles;
 
-public class VehicleEntryGUI extends JFrame implements ActionListener {
+public class MainMenu extends JFrame implements ActionListener {
     //private JButton jeepButton;
-    public VehicleEntryGUI() {
+    public MainMenu() {
         // Set up the main window
         setTitle("Vehicle Agency - Add Vehicles");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,11 +89,12 @@ public class VehicleEntryGUI extends JFrame implements ActionListener {
 
 
     public static void main(String[] args) {
-        new VehicleEntryGUI();
+        new MainMenu();
     }
     static Menus a = new Menus();
     @Override
     public void actionPerformed(ActionEvent e) {
+
         String command = e.getActionCommand();
         //boolean exit = true;
         //while (exit) {
@@ -137,6 +135,6 @@ public class VehicleEntryGUI extends JFrame implements ActionListener {
             }
         Menus m = new Menus();
         m.printAllVehicles();
-
+        GraphicMenus.printAllVehiclesGuiPop();
     }
 }

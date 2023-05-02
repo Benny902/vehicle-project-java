@@ -4,12 +4,16 @@ import Vehicle.Vehicle;
 import Vehicle.Jeep;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import System.Menus;
 
 import static System.Main.*;
 import Vehicle.MarineVehicle;
 
+import java.util.Arrays;
+import java.util.Vector;
 
 
 public class GraphicMenus {
@@ -22,6 +26,70 @@ public class GraphicMenus {
             System.out.println(Agency[i]);
         }
     }
+
+    public static void printAllVehiclesGuiPop(){
+        // Print all the List Available Vehicles in stock.
+
+        String[] strArray = { };
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < amountOfVehicles; i++) {
+            stringBuilder.append(Agency[i]);
+            stringBuilder.append("\n");
+        }
+        String joinedString = stringBuilder.toString();
+        JOptionPane.showMessageDialog(null, "List of Available Vehicles in stock:\n" + joinedString);
+    }
+
+
+    public static void printAllVehiclesGuiPopTable(){
+        // Print all the List Available Vehicles in stock.
+
+        String[] strArray = { };
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < amountOfVehicles; i++) {
+            stringBuilder.append(Agency[i]);
+            stringBuilder.append("\n");
+        }
+        String joinedString = stringBuilder.toString();
+        //JOptionPane.showMessageDialog(null, "List of Available Vehicles in stock:\n" + joinedString);
+
+        String rows[] = joinedString.split("\n");
+
+
+
+        Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
+        for (String row : rows) {
+            //row = row.trim();  //UPDATE
+            Vector<String> data = new Vector<String>();
+            data.addAll(Arrays.asList(row.split(",")));
+            dataVector.add(data);
+        }
+
+        Vector<String> header = new Vector<String>(2);
+        header.add("Model");
+        header.add("Traveled");
+        header.add("MaxSpeed");
+        header.add("MaxPeople");
+        header.add("NumOfWheels");
+        header.add("RoadType");
+        header.add("typeOfLicense");
+        header.add("avgFuelConsumption");
+        header.add("avgEngineLifeSpan");
+
+
+        TableModel model = new DefaultTableModel(dataVector, header);
+        JTable table = new JTable(model);
+
+        JFrame frame = new JFrame("DemoFrame");
+        frame.add(new JScrollPane(table));
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+
+
+    }
+
     public static Vehicle scanJeepGui(){
         String modelJeep = JOptionPane.showInputDialog(null, "Please Enter Model: ");
         double avgFuelConsumptionJeep = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Enter Average Fuel Consumption: "));
@@ -66,10 +134,13 @@ public class GraphicMenus {
             }
             Agency = tempAgency;
             System.out.print("Vehicle bought successfully! \n");
+            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
             amountOfVehicles--;
         }
-        else
+        else    {
             System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
 
         System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){

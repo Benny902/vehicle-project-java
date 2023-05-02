@@ -324,11 +324,13 @@ public class Menus {
             }
             Agency = tempAgency;
             System.out.print("Vehicle bought successfully! \n");
+            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
             amountOfVehicles--;
         }
-        else
+        else    {
             System.out.print("Error, Vehicle not found. Please try again. \n");
-
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
         System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);

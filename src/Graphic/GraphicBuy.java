@@ -59,6 +59,8 @@ public class GraphicBuy extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        GraphicMenus.printAllVehiclesGuiPop();
+
         String command = e.getActionCommand();
         //boolean exit = true;
         //while (exit) {
@@ -87,7 +89,7 @@ public class GraphicBuy extends JFrame implements ActionListener {
                 break;
         }
 
-        GraphicMenus.printAllVehiclesGui();
+
 
     }
 
