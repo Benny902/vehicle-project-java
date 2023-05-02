@@ -9,6 +9,7 @@ import Vehicle.AmphibiousVehicle;
 import Vehicle.Bicycle;
 import Vehicle.CruiseShip;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 import static System.Main.*;
@@ -20,7 +21,7 @@ public class Menus {
 
     public void printAllVehicles(){
         // Print all the List Available Vehicles in stock.
-        System.out.println("List of Available Vehicles in stock:\n");
+        System.out.println("\nList of Available Vehicles in stock:");
         for (int i = 0; i < amountOfVehicles; i++) {
             System.out.println(Agency[i]);
         }
@@ -31,7 +32,7 @@ public class Menus {
         String intInputValue = sc.nextLine();
         return intInputValue;
     }
-    public int myScanInt(){
+    public static int myScanInt(){
         Scanner sc = new Scanner(System.in);
         int intInputValue = 0;
         while (true) {
@@ -219,7 +220,6 @@ public class Menus {
         Vehicle a = new CruiseShip(model,distanceTraveled,numOfPassengers,maxSpeed,countryFlag,avgFuelConsumption,avgEngineLifeSpan);
         return a;
     }
-
     public  void addJeep() {
         Agency[amountOfVehicles] = scanJeep();
         amountOfVehicles++;
@@ -568,7 +568,6 @@ public class Menus {
             System.out.println(Agency[z]);
         }
     }
-
     public void testDriveVehicle(){
 
 
@@ -820,7 +819,7 @@ public class Menus {
         for (int i = 0; i < amountOfVehicles; i++) {
             Agency[i].setDistanceTraveled(0);
         }
-        System.out.print("Distance traveled for ALL the Vehicles has been Reset");
+        System.out.println("Distance traveled for ALL the Vehicles has been Reset");
     }
     public void changeFlagOfAllMarineVehicles(){
         System.out.print("Which Flag you want All Marine Vehicles to have?\n");
@@ -833,6 +832,8 @@ public class Menus {
         }
         System.out.print("Flag for All the Marine Vehicles have been Changed to " + chosenFlag +".");
     }
+
+
 
 
 }
