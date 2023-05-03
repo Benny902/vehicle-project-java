@@ -23,9 +23,9 @@ public abstract class Vehicle {
     public String toString() {
         return
                 "Model: " + model +
-                ", traveled: " + distanceTraveled + " Km" +
-                ", Max speed of " + maxSpeed + " Mph" +
-                ", can carry max of " + numOfPassengers + " people,"
+                        ", traveled: " + distanceTraveled + " Km" +
+                        ", Max speed of " + maxSpeed + " Mph" +
+                        ", can carry max of " + numOfPassengers + " people,"
                 ;
     }
 

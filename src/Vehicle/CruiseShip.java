@@ -54,4 +54,3 @@ public class CruiseShip extends MarineVehicle implements IMotorized, ICommercial
     }
 
 }
-

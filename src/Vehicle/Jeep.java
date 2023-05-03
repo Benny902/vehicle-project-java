@@ -85,4 +85,3 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
 
 
 }
-

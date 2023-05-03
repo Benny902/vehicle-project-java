@@ -74,4 +74,3 @@ public class AmphibiousVehicle extends Vehicle implements IMotorized{
         return Objects.hash(super.hashCode(), landVehicle, marineVehicle, getAvgFuelConsumption(), getAvgEngineLifeSpan());
     }
 }
-
