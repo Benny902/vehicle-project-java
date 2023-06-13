@@ -1,4 +1,4 @@
-package Graphic;
+/*package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
@@ -125,6 +125,7 @@ public class GraphicBuy extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Jeep":
+                this.SetImage("Jeep");
                 GraphicMenus.buyJeepGui();
                 break;
 
@@ -167,4 +168,8 @@ public class GraphicBuy extends JFrame implements ActionListener {
 
     }
 
-}
+    public String SetImage(String imageName){
+        return imageName;
+    }
+
+}*/

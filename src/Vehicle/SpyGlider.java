@@ -1,12 +1,15 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class SpyGlider extends AirVehicle implements INonMotorized {
     private String powerSource;
     private char energyScore; // A/B/C
 
-    public SpyGlider(String powerSource, int distanceTraveled) {
+    private ImageIcon image;
+
+    public SpyGlider(String powerSource, int distanceTraveled, ImageIcon image) {
         super();
         // SpyGlider details that cannot be changed:
         this.isMilitary = true;
@@ -18,14 +21,27 @@ public class SpyGlider extends AirVehicle implements INonMotorized {
         // SpyGlider details entered by user:
         this.powerSource = powerSource;
         this.distanceTraveled = distanceTraveled;
+        this.image = image;
     }
+
+    /*public SpyGlider(String powerSource, char energyScore) { //HybridAircraft
+        super();
+        // SpyGlider details that cannot be changed:
+        this.isMilitary = true;
+        // SpyGlider details entered by user:
+        this.powerSource = powerSource;
+        this.energyScore = energyScore;
+    }*/
+
+
 
     @Override
     public String toString() {
         return "SpyGlider{ " +
                 super.toString() +
                 ", Power Source=" + powerSource +
-                ", Energy Score=" + energyScore +
+                ", Energy Score=" + energyScore  +
+                ",Image Jeep" +image +
                 '}';
     }
 
@@ -66,6 +82,14 @@ public class SpyGlider extends AirVehicle implements INonMotorized {
     @Override
     public void setEnergyScore(char energyScore) {
         this.energyScore = energyScore;
+    }
+
+    public ImageIcon getImageIcon() {
+        return this.image;
+    }
+
+    public ImageIcon getSpyGliderImageIcon() {
+        return this.image;
     }
 
 

@@ -1,10 +1,13 @@
 package Graphic;
-
+import java.util.Random;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 
+import static Graphic.GraphicMenus.addVehicleToAgency;
+import static Graphic.GraphicMenus.printAllVehiclesGuiPopTestDrive;
 import static System.Main.Agency;
 import static System.Main.amountOfVehicles;
 import static System.Main.capacityOfAgency;
@@ -26,7 +29,7 @@ public class SecondMenu extends JFrame implements ActionListener {
         setTitle("Welcome to the Vehicle Agency DealerShip Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
-        setLayout(new GridLayout(2, 4));
+        setLayout(new GridLayout(2, 5));
 
         ImageIcon imageIconBuy = new ImageIcon("src/Images/buy.png"); // load the image to a imageIcon
         Image imageBuy = imageIconBuy.getImage();
@@ -85,6 +88,16 @@ public class SecondMenu extends JFrame implements ActionListener {
         addVehicleMenuButton.addActionListener(this);
         addVehicleMenuButton.setActionCommand("AddVehicleMenu");
 
+        ImageIcon imageIconAvailableMenu = new ImageIcon("src/Images/available.png"); // load the image to a imageIcon
+        Image imageAvailableMenu = imageIconAvailableMenu.getImage();
+        Image AvailableMenuImg = imageAvailableMenu.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconAvailableMenu= new ImageIcon(AvailableMenuImg);
+        JButton availableMenuButton = new JButton("Available",imageIconAvailableMenu);
+        availableMenuButton.setHorizontalTextPosition(JButton.CENTER);
+        availableMenuButton.setVerticalTextPosition(JButton.BOTTOM);
+        availableMenuButton.addActionListener(this);
+        availableMenuButton.setActionCommand("Available");
+
 
 
         ImageIcon imageIconQuit = new ImageIcon("src/Images/quit.png"); // load the image to a imageIcon
@@ -104,6 +117,7 @@ public class SecondMenu extends JFrame implements ActionListener {
         add(resetButton);
         add(changeButton);
         add(addVehicleMenuButton);
+        add(availableMenuButton);
         add(quitButton);
 
         // Make the window visible
@@ -127,11 +141,12 @@ public class SecondMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Buy":
-                GraphicBuy.main(null);
-
+                /*GraphicMenus.printAllVehiclesGuiPopBuy();*/
+                SwingUtilities.invokeLater(GraphicMenus::printAllVehiclesGuiPopBuy);
                 break;
             case "Test":
-                GraphicTest.main(null);
+                //GraphicTest.main(null); // before ex2 with this we used to TestDrive...
+                GraphicMenus.printAllVehiclesGuiPopTestDrive();
                 break;
 
             case "Reset":
@@ -139,14 +154,21 @@ public class SecondMenu extends JFrame implements ActionListener {
                 break;
 
             case "Change":
-                GraphicMenus.changeFlagOfAllMarineVehiclesGui();
+                //Change Flag for All the Marine Vehicles to some flag.
+                new GraphicFlags();
+                //GraphicMenus.changeFlagOfAllMarineVehiclesGui();
                 break;
             case "AddVehicleMenu":
-                dispose();
-                MainMenu.main(null);
+                    MainMenu.main(null);
+                      dispose();
+                //MainMenu.main(null);
+                //GraphicMenus.addVehicleToAgency();
                 break;
-
-
+            case "Available":
+                synchronized (this) {
+                    GraphicMenus.printAllVehiclesGuiPop();
+                }
+                break;
 
             case "QuitSystem":
                 System.out.println("close menu2");
@@ -157,7 +179,7 @@ public class SecondMenu extends JFrame implements ActionListener {
                 break;
         }
         Menus m = new Menus();
-        m.printAllVehicles();
+        //m.printAllVehicles();
 
     }
 
